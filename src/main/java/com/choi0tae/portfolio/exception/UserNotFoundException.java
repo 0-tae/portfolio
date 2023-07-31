@@ -1,0 +1,6 @@
+package com.choi0tae.portfolio.exception;
+
+public class UserNotFoundException extends RuntimeException{
+
+    public UserNotFoundException(String msg) {super(msg);}
+}
