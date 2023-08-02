@@ -9,6 +9,7 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.swing.text.StyledEditorKit;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table
@@ -17,8 +18,8 @@ import java.time.LocalDateTime;
 public class User implements SoftDeletable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     @Column(nullable = false)
     private String authority;
