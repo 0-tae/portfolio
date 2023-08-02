@@ -12,13 +12,19 @@ public class PostDtoForRequest {
     String content;
     String title;
     String user_string_id;
+    Boolean visible;
 
     public Post toEntity(User user){
+        LocalDateTime now = LocalDateTime.now();
+
         return Post.builder()
-                .createdAt(LocalDateTime.now())
+                .createdAt(now)
+                .postedDate(now.toLocalDate())
+                .postedTime(now.toLocalTime())
                 .content(content)
-                .title(title)
+                .title(title==null ? "(제목 없음)" : title)
                 .user(user)
+                .visible(visible)
                 .build();
     }
 }
